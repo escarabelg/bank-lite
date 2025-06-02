@@ -1,0 +1,16 @@
+volumes:
+  bank_sqlite_data:
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./data:/app/data
+    env_file:
+      - ./.env
+    container_name: 'bank_node_sqlite'
+    ports:
+      - "3000:3000"
+      - "9229:9229"
