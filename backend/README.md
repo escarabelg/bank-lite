@@ -42,7 +42,7 @@ npm run docker:up
 ```
 5. Execute the migration
 ```
-npm run prisma:generate
+npm run docker:apply:migrations
 ```
 
 #### Optional
