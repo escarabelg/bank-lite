@@ -1,0 +1,12 @@
+<h2>Clients</h2>
+<button routerLink="/client/new"><span class="glyphicon glyphicon-plus"></span> Create Client</button>
+<ul style="margin-top:30px">
+  <li *ngFor="let client of clients" style="margin-top: 9px">
+    <span style="margin-right: 10px">
+      <button (click)="deleteClient(client.id)"><span style="color:red" class="glyphicon glyphicon-trash"></span></button>
+      <button (click)="editClient(client.id)"><span class="glyphicon glyphicon-edit"></span></button>
+      <button [routerLink]="['/client/transactions', client.id]"><span class="glyphicon glyphicon-list-alt"></span></button>
+    </span>
+    <span style="font-size: 14px">{{ client.name }} - {{ client.email }}</span>
+  </li>
+</ul>

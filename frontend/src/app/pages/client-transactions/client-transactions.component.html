@@ -1,0 +1,40 @@
+<div *ngIf="client">
+  <h2>Cliente: {{ client.name }}</h2>
+
+  <div>
+    <label>
+      Amount:
+      <input type="number" [(ngModel)]="value" />
+    </label>
+    <button (click)="deposit()">Deposit</button>
+    <button (click)="withdraw()">Withdraw</button>
+    <button routerLink="/">Cancel</button>
+
+    <div *ngIf="errorMessage" style="color: red; margin-bottom: 10px;">
+      {{ errorMessage }}
+    </div>
+
+  </div>
+
+  <p style="margin-top: 20px; font-size: 25px"><strong>Balance:</strong> <span style="color:green"> ${{ transactions[transactions.length - 1].after}}</span></p>
+
+  <h3>Transactions</h3>
+<table style="border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #ccc; padding: 6px; text-align: right;">Amount</th>
+      <th style="border: 1px solid #ccc; padding: 6px; text-align: left;">Operation</th>
+      <th style="border: 1px solid #ccc; padding: 6px; text-align: left;">Data <span class="glyphicon glyphicon-arrow-down"></span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tx of transactions">
+      <td style="border: 1px solid #ccc; padding: 6px; text-align: right;">$ {{ tx.value }}</td>
+      <td style="border: 1px solid #ccc; padding: 6px;">{{ tx.type.toUpperCase() }}</td>
+      <td style="border: 1px solid #ccc; padding: 6px;">{{ tx.created_at }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+</div>
