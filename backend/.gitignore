@@ -1,0 +1,8 @@
+/dist
+/data
+/node_modules
+/coverage
+.vscode/*
+.docker
+.env
+*.log
